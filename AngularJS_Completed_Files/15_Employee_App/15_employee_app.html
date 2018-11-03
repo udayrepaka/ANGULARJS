@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EmployeeApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../bootstrap/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/mdb.css">
+    <link rel="stylesheet" href="../bootstrap/css/style.css">
+    <title>Employee App</title>
+</head>
+
+<body ng-controller="EmployeeAppCtrl as ctrl">
+
+
+<!-- Heading -->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body bg-teal text-white text-center">
+                    <h2>Employee App</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card ">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Add Employee</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <input ng-model="ctrl.employee.name" type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input ng-model="ctrl.employee.email" type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Designation</label>
+                            <select class="form-control" ng-model="ctrl.employee.designation">
+                                <option>Software Engineer</option>
+                                <option>Senior Software Engineer</option>
+                                <option>Technical Lead</option>
+                                <option>Ass. Project Manager</option>
+                                <option>Project Manager</option>
+                            </select>
+                        </div>
+                        <div class="form-chec">
+                            <label class="form-check-label mr-5">Select a Gender</label>
+                            <input ng-model="ctrl.employee.gender" type="radio" name="age" class="form-check-input" value="Male" > Male
+                            <input ng-model="ctrl.employee.gender" type="radio" name="age" class="form-check-input ml-1" value="Female" > &nbsp; &nbsp; &nbsp; Female
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block mt-2" ng-click="ctrl.addEmployee()">Add Employee</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <!-- Empty -->
+        </div>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-success text-white text-center">
+                    <h3>Employee Details</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>SNO</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Designation</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="employee in ctrl.employees">
+                                <td>{{$index + 1}}</td>
+                                <td>{{employee.name}}</td>
+                                <td>{{employee.email}}</td>
+                                <td>{{employee.gender}}</td>
+                                <td>{{employee.designation}}</td>
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-sm" ng-click="ctrl.deleteEmployee($index)">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<!-- Body Ends -->
+<script src="../bootstrap/js/fontawesome-all.js" ></script>
+<script src="../bootstrap/js/jquery-3.2.1.min.js" ></script>
+<script src="../bootstrap/js/popper.min.js" ></script>
+<script src="../bootstrap/js/bootstrap.min.js" ></script>
+<script src="../bootstrap/js/mdb.min.js" ></script>
+<script src="../angular/angular.js" ></script>
+<script src="15_app.js" ></script>
+</html>
